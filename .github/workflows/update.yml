@@ -10,21 +10,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Run script
         run: |
           chmod +x scripts/update_rules.sh
           ./scripts/update_rules.sh
 
-      - name: Commit
+      - name: Commit and Push
         run: |
           git config --global user.name "rules-bot"
           git config --global user.email "bot@example.com"
+
           git add .
-          git commit -m "update rules" || echo "no change"
-          git push origin HEAD:main --force
+
+          git commit -m "update rules" || echo "no changes"
+
+          git pull origin main --rebase
+
+          git push
