@@ -3,7 +3,7 @@
 set -e
 
 mkdir -p rules
-
+rm -rf rules/*
 echo "===== Updating Rules ====="
 
 # =========================
@@ -56,11 +56,30 @@ curl -L https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/ru
 curl -L https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/UBI/UBI.list -o rules/ubisoft.list
 curl -L https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/PlayStation/PlayStation.list -o rules/playstation.list
 curl -L https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Nintendo/Nintendo.list -o rules/nintendo.list
+# Riot / Valorant
+curl -L https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Riot/Riot.list -o rules/riot.list
 
+# PUBG
+curl -L https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/PUBG/PUBG.list -o rules/pubg.list
+
+# Apex
+curl -L https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apex/Apex.list -o rules/apex.list
+
+# Xbox
+curl -L https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Xbox/Xbox.list -o rules/xbox.list
+curl -L https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Game/Game.list -o rules/gaming.list
+# Valorant
+curl -L https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Valorant/Valorant.list -o rules/valorant.list
+# =========================
+# Game Servers
+# =========================
+
+curl -L https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Game/GameIP/GameIP.list -o rules/gaming-ip.list
 # =========================
 # Crypto
 # =========================
-
+curl -L https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Crunchyroll/Crunchyroll.list -o rules/crunchyroll.list
+curl -L https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/TikTok/TikTok.list -o rules/tiktok.list
 curl -L https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/binance.mrs -o rules/binance.list
 curl -L https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/bybit.mrs -o rules/bybit.list
 curl -L https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/okx.mrs -o rules/okx.list
