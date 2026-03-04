@@ -19,10 +19,11 @@ jobs:
         chmod +x scripts/update_rules.sh
         ./scripts/update_rules.sh
 
-    - name: Commit
-      run: |
-        git config --global user.name "rules-bot"
-        git config --global user.email "bot@example.com"
-        git add .
-        git commit -m "update rules" || echo "no change"
-        git push
+- name: Commit
+  run: |
+    git config --global user.name "rules-bot"
+    git config --global user.email "bot@example.com"
+    git add .
+    git commit -m "update rules" || echo "no change"
+    git pull --rebase
+    git push
