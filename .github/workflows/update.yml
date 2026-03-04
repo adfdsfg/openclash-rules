@@ -30,6 +30,4 @@ jobs:
 
           git commit -m "update rules" || echo "no changes"
 
-          git pull origin main --rebase
-
-          git push
+          git push origin HEAD:main --force
