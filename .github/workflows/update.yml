@@ -14,7 +14,6 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Run script
         run: |
@@ -27,7 +26,8 @@ jobs:
           git config --global user.email "bot@example.com"
 
           git add .
-
           git commit -m "update rules" || echo "no changes"
 
-          git push origin HEAD:main --force
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+
+          git push origin main
