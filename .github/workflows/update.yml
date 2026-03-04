@@ -27,4 +27,5 @@ jobs:
           git config --global user.email "bot@example.com"
           git add .
           git commit -m "update rules" || echo "no change"
-          git push --force
+          git pull --rebase origin main
+          git push origin main
