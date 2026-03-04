@@ -2,7 +2,7 @@ name: Update Rules
 
 on:
   schedule:
-    - cron: '0 3 * * *'
+    - cron: "0 3 * * *"
   workflow_dispatch:
 
 jobs:
@@ -15,10 +15,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Sync with remote
-        run: |
-          git pull --rebase origin main
-
       - name: Run script
         run: |
           chmod +x scripts/update_rules.sh
@@ -29,7 +25,8 @@ jobs:
           git config --global user.name "rules-bot"
           git config --global user.email "bot@example.com"
 
-          git add .
-          git commit -m "update rules" || echo "no changes"
+          git add rules/*
+          git commit -m "auto update rules" || echo "no changes"
 
+          git pull --rebase origin main
           git push origin main
